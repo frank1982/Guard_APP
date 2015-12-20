@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		011F37081C206C490093086B /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F37071C206C490093086B /* TwoViewController.swift */; };
+		011F370A1C206C560093086B /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F37091C206C560093086B /* ThreeViewController.swift */; };
+		01692FCE1C26B08A0078E674 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FCD1C26B08A0078E674 /* Dao.swift */; };
+		01692FD11C26DFA00078E674 /* WeChatLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD01C26DFA00078E674 /* WeChatLoginViewController.swift */; };
+		01692FD31C26F46E0078E674 /* NetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD21C26F46E0078E674 /* NetDao.swift */; };
+		019320631C204DA200AB90BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019320621C204DA200AB90BE /* AppDelegate.swift */; };
+		019320651C204DA200AB90BE /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019320641C204DA200AB90BE /* OneViewController.swift */; };
+		019320681C204DA200AB90BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019320661C204DA200AB90BE /* Main.storyboard */; };
+		0193206B1C204DA200AB90BE /* P2PGuard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 019320691C204DA200AB90BE /* P2PGuard.xcdatamodeld */; };
+		0193206D1C204DA200AB90BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0193206C1C204DA200AB90BE /* Assets.xcassets */; };
+		019320701C204DA200AB90BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0193206E1C204DA200AB90BE /* LaunchScreen.storyboard */; };
+		0193207B1C204DA200AB90BE /* P2PGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193207A1C204DA200AB90BE /* P2PGuardTests.swift */; };
+		019320861C204DA200AB90BE /* P2PGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019320851C204DA200AB90BE /* P2PGuardUITests.swift */; };
+		019320941C20544700AB90BE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019320931C20544700AB90BE /* Constant.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		019320771C204DA200AB90BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 019320571C204DA200AB90BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0193205E1C204DA200AB90BE;
+			remoteInfo = P2PGuard;
+		};
+		019320821C204DA200AB90BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 019320571C204DA200AB90BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0193205E1C204DA200AB90BE;
+			remoteInfo = P2PGuard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		011F37071C206C490093086B /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		011F37091C206C560093086B /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
+		01692FCD1C26B08A0078E674 /* Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
+		01692FD01C26DFA00078E674 /* WeChatLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeChatLoginViewController.swift; sourceTree = "<group>"; };
+		01692FD21C26F46E0078E674 /* NetDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetDao.swift; sourceTree = "<group>"; };
+		0193205F1C204DA200AB90BE /* P2PGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		019320621C204DA200AB90BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		019320641C204DA200AB90BE /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		019320671C204DA200AB90BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0193206A1C204DA200AB90BE /* P2PGuard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = P2PGuard.xcdatamodel; sourceTree = "<group>"; };
+		0193206C1C204DA200AB90BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0193206F1C204DA200AB90BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		019320711C204DA200AB90BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019320761C204DA200AB90BE /* P2PGuardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P2PGuardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0193207A1C204DA200AB90BE /* P2PGuardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PGuardTests.swift; sourceTree = "<group>"; };
+		0193207C1C204DA200AB90BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019320811C204DA200AB90BE /* P2PGuardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P2PGuardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		019320851C204DA200AB90BE /* P2PGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PGuardUITests.swift; sourceTree = "<group>"; };
+		019320871C204DA200AB90BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019320931C20544700AB90BE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0193205C1C204DA200AB90BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		019320731C204DA200AB90BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0193207E1C204DA200AB90BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01692FCF1C26DF850078E674 /* One */ = {
+			isa = PBXGroup;
+			children = (
+				019320641C204DA200AB90BE /* OneViewController.swift */,
+				01692FD01C26DFA00078E674 /* WeChatLoginViewController.swift */,
+			);
+			name = One;
+			sourceTree = "<group>";
+		};
+		019320561C204DA200AB90BE = {
+			isa = PBXGroup;
+			children = (
+				019320611C204DA200AB90BE /* P2PGuard */,
+				019320791C204DA200AB90BE /* P2PGuardTests */,
+				019320841C204DA200AB90BE /* P2PGuardUITests */,
+				019320601C204DA200AB90BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		019320601C204DA200AB90BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0193205F1C204DA200AB90BE /* P2PGuard.app */,
+				019320761C204DA200AB90BE /* P2PGuardTests.xctest */,
+				019320811C204DA200AB90BE /* P2PGuardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		019320611C204DA200AB90BE /* P2PGuard */ = {
+			isa = PBXGroup;
+			children = (
+				01692FCF1C26DF850078E674 /* One */,
+				019320621C204DA200AB90BE /* AppDelegate.swift */,
+				019320661C204DA200AB90BE /* Main.storyboard */,
+				0193206C1C204DA200AB90BE /* Assets.xcassets */,
+				0193206E1C204DA200AB90BE /* LaunchScreen.storyboard */,
+				019320711C204DA200AB90BE /* Info.plist */,
+				019320691C204DA200AB90BE /* P2PGuard.xcdatamodeld */,
+				019320931C20544700AB90BE /* Constant.swift */,
+				011F37071C206C490093086B /* TwoViewController.swift */,
+				011F37091C206C560093086B /* ThreeViewController.swift */,
+				01692FCD1C26B08A0078E674 /* Dao.swift */,
+				01692FD21C26F46E0078E674 /* NetDao.swift */,
+			);
+			path = P2PGuard;
+			sourceTree = "<group>";
+		};
+		019320791C204DA200AB90BE /* P2PGuardTests */ = {
+			isa = PBXGroup;
+			children = (
+				0193207A1C204DA200AB90BE /* P2PGuardTests.swift */,
+				0193207C1C204DA200AB90BE /* Info.plist */,
+			);
+			path = P2PGuardTests;
+			sourceTree = "<group>";
+		};
+		019320841C204DA200AB90BE /* P2PGuardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				019320851C204DA200AB90BE /* P2PGuardUITests.swift */,
+				019320871C204DA200AB90BE /* Info.plist */,
+			);
+			path = P2PGuardUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0193205E1C204DA200AB90BE /* P2PGuard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0193208A1C204DA200AB90BE /* Build configuration list for PBXNativeTarget "P2PGuard" */;
+			buildPhases = (
+				0193205B1C204DA200AB90BE /* Sources */,
+				0193205C1C204DA200AB90BE /* Frameworks */,
+				0193205D1C204DA200AB90BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = P2PGuard;
+			productName = P2PGuard;
+			productReference = 0193205F1C204DA200AB90BE /* P2PGuard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		019320751C204DA200AB90BE /* P2PGuardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0193208D1C204DA200AB90BE /* Build configuration list for PBXNativeTarget "P2PGuardTests" */;
+			buildPhases = (
+				019320721C204DA200AB90BE /* Sources */,
+				019320731C204DA200AB90BE /* Frameworks */,
+				019320741C204DA200AB90BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				019320781C204DA200AB90BE /* PBXTargetDependency */,
+			);
+			name = P2PGuardTests;
+			productName = P2PGuardTests;
+			productReference = 019320761C204DA200AB90BE /* P2PGuardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		019320801C204DA200AB90BE /* P2PGuardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 019320901C204DA200AB90BE /* Build configuration list for PBXNativeTarget "P2PGuardUITests" */;
+			buildPhases = (
+				0193207D1C204DA200AB90BE /* Sources */,
+				0193207E1C204DA200AB90BE /* Frameworks */,
+				0193207F1C204DA200AB90BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				019320831C204DA200AB90BE /* PBXTargetDependency */,
+			);
+			name = P2PGuardUITests;
+			productName = P2PGuardUITests;
+			productReference = 019320811C204DA200AB90BE /* P2PGuardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		019320571C204DA200AB90BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = frank;
+				TargetAttributes = {
+					0193205E1C204DA200AB90BE = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = FGH7477772;
+					};
+					019320751C204DA200AB90BE = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = FGH7477772;
+						TestTargetID = 0193205E1C204DA200AB90BE;
+					};
+					019320801C204DA200AB90BE = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = FGH7477772;
+						TestTargetID = 0193205E1C204DA200AB90BE;
+					};
+				};
+			};
+			buildConfigurationList = 0193205A1C204DA200AB90BE /* Build configuration list for PBXProject "P2PGuard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 019320561C204DA200AB90BE;
+			productRefGroup = 019320601C204DA200AB90BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0193205E1C204DA200AB90BE /* P2PGuard */,
+				019320751C204DA200AB90BE /* P2PGuardTests */,
+				019320801C204DA200AB90BE /* P2PGuardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0193205D1C204DA200AB90BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				019320701C204DA200AB90BE /* LaunchScreen.storyboard in Resources */,
+				0193206D1C204DA200AB90BE /* Assets.xcassets in Resources */,
+				019320681C204DA200AB90BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		019320741C204DA200AB90BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0193207F1C204DA200AB90BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0193205B1C204DA200AB90BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011F37081C206C490093086B /* TwoViewController.swift in Sources */,
+				019320651C204DA200AB90BE /* OneViewController.swift in Sources */,
+				019320631C204DA200AB90BE /* AppDelegate.swift in Sources */,
+				011F370A1C206C560093086B /* ThreeViewController.swift in Sources */,
+				0193206B1C204DA200AB90BE /* P2PGuard.xcdatamodeld in Sources */,
+				01692FD31C26F46E0078E674 /* NetDao.swift in Sources */,
+				019320941C20544700AB90BE /* Constant.swift in Sources */,
+				01692FD11C26DFA00078E674 /* WeChatLoginViewController.swift in Sources */,
+				01692FCE1C26B08A0078E674 /* Dao.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		019320721C204DA200AB90BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0193207B1C204DA200AB90BE /* P2PGuardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0193207D1C204DA200AB90BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				019320861C204DA200AB90BE /* P2PGuardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		019320781C204DA200AB90BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0193205E1C204DA200AB90BE /* P2PGuard */;
+			targetProxy = 019320771C204DA200AB90BE /* PBXContainerItemProxy */;
+		};
+		019320831C204DA200AB90BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0193205E1C204DA200AB90BE /* P2PGuard */;
+			targetProxy = 019320821C204DA200AB90BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		019320661C204DA200AB90BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				019320671C204DA200AB90BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0193206E1C204DA200AB90BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0193206F1C204DA200AB90BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		019320881C204DA200AB90BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		019320891C204DA200AB90BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0193208B1C204DA200AB90BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = P2PGuard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0193208C1C204DA200AB90BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = P2PGuard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0193208E1C204DA200AB90BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = P2PGuardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P2PGuard.app/P2PGuard";
+			};
+			name = Debug;
+		};
+		0193208F1C204DA200AB90BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = P2PGuardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P2PGuard.app/P2PGuard";
+			};
+			name = Release;
+		};
+		019320911C204DA200AB90BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = P2PGuardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = P2PGuard;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		019320921C204DA200AB90BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = P2PGuardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = P2PGuard;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0193205A1C204DA200AB90BE /* Build configuration list for PBXProject "P2PGuard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				019320881C204DA200AB90BE /* Debug */,
+				019320891C204DA200AB90BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0193208A1C204DA200AB90BE /* Build configuration list for PBXNativeTarget "P2PGuard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0193208B1C204DA200AB90BE /* Debug */,
+				0193208C1C204DA200AB90BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0193208D1C204DA200AB90BE /* Build configuration list for PBXNativeTarget "P2PGuardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0193208E1C204DA200AB90BE /* Debug */,
+				0193208F1C204DA200AB90BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		019320901C204DA200AB90BE /* Build configuration list for PBXNativeTarget "P2PGuardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				019320911C204DA200AB90BE /* Debug */,
+				019320921C204DA200AB90BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		019320691C204DA200AB90BE /* P2PGuard.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0193206A1C204DA200AB90BE /* P2PGuard.xcdatamodel */,
+			);
+			currentVersion = 0193206A1C204DA200AB90BE /* P2PGuard.xcdatamodel */;
+			path = P2PGuard.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 019320571C204DA200AB90BE /* Project object */;
+}

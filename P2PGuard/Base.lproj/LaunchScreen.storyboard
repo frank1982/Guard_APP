@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="IconInLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="53W-FS-SJB">
+                                <rect key="frame" x="180" y="216" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="P2P预警" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gih-l1-R9v">
+                                <rect key="frame" x="240" y="357" width="120" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" red="0.8901960784313725" green="0.090196078431372548" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copyright    Westwind  Team   2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZt-bt-i42">
+                                <rect key="frame" x="160" y="528" width="281" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" red="0.89019607840000003" green="0.090196078430000007" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="风险通知  舆情监控  投资预警" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-pc-9de">
+                                <rect key="frame" x="183" y="430" width="235" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.89019607840000003" green="0.090196078430000007" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="53W-FS-SJB" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="4xo-fe-P3P"/>
+                            <constraint firstItem="jnR-pc-9de" firstAttribute="top" secondItem="gih-l1-R9v" secondAttribute="bottom" constant="60" id="EEK-tr-VcE"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="MZt-bt-i42" secondAttribute="bottom" constant="20" id="Go6-9D-Tor"/>
+                            <constraint firstItem="gih-l1-R9v" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Oha-FG-o8l"/>
+                            <constraint firstItem="gih-l1-R9v" firstAttribute="top" secondItem="53W-FS-SJB" secondAttribute="bottom" constant="15" id="Pie-Sz-N4m"/>
+                            <constraint firstItem="53W-FS-SJB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RWg-o0-0yo"/>
+                            <constraint firstItem="MZt-bt-i42" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RZC-2I-loS"/>
+                            <constraint firstItem="jnR-pc-9de" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fhf-dN-uWe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IconInLaunch" width="66" height="66"/>
+    </resources>
+</document>
