@@ -12,6 +12,7 @@
 		01692FCE1C26B08A0078E674 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FCD1C26B08A0078E674 /* Dao.swift */; };
 		01692FD11C26DFA00078E674 /* WeChatLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD01C26DFA00078E674 /* WeChatLoginViewController.swift */; };
 		01692FD31C26F46E0078E674 /* NetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD21C26F46E0078E674 /* NetDao.swift */; };
+		01692FD51C2992100078E674 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD41C2992100078E674 /* InfoCell.swift */; };
 		019320631C204DA200AB90BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019320621C204DA200AB90BE /* AppDelegate.swift */; };
 		019320651C204DA200AB90BE /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019320641C204DA200AB90BE /* OneViewController.swift */; };
 		019320681C204DA200AB90BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019320661C204DA200AB90BE /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		01692FCD1C26B08A0078E674 /* Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
 		01692FD01C26DFA00078E674 /* WeChatLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeChatLoginViewController.swift; sourceTree = "<group>"; };
 		01692FD21C26F46E0078E674 /* NetDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetDao.swift; sourceTree = "<group>"; };
+		01692FD41C2992100078E674 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		0193205F1C204DA200AB90BE /* P2PGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		019320621C204DA200AB90BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		019320641C204DA200AB90BE /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				019320641C204DA200AB90BE /* OneViewController.swift */,
 				01692FD01C26DFA00078E674 /* WeChatLoginViewController.swift */,
+				01692FD41C2992100078E674 /* InfoCell.swift */,
 			);
 			name = One;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				019320941C20544700AB90BE /* Constant.swift in Sources */,
 				01692FD11C26DFA00078E674 /* WeChatLoginViewController.swift in Sources */,
 				01692FCE1C26B08A0078E674 /* Dao.swift in Sources */,
+				01692FD51C2992100078E674 /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 
 import UIKit
 
-class OneViewController: UIViewController {
+class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var _constant:Constant=Constant()
     var _width:CGFloat!
@@ -10,13 +10,21 @@ class OneViewController: UIViewController {
     var _isNetOK:Bool=true
     var _netDao:NetDao=NetDao()
     var platformNum:UILabel!=UILabel()//监控平台数量
+    var platformNumDescript:UILabel!=UILabel()
+    var _tableViewHeight:CGFloat!
+    var tableTitleView:UIView!
+    var tableTitle:UILabel!
+    var tableView:UITableView!
+    var cellArray:NSArray!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         _width=self.view.frame.width
-        _height=self.view.frame.height
+        _height=UIScreen.mainScreen().bounds.height
         self.view.backgroundColor=UIColor.whiteColor()
+        
+        
         var titleLabel=UILabel(frame:CGRectMake(0, 0, 80, 44))
         //titleLabel.backgroundColor=UIColor.greenColor()
         titleLabel.text="舆情监控"
@@ -61,10 +69,89 @@ class OneViewController: UIViewController {
             
             //异步加载平台数量
             loadPlatformNum()
+            
+            //加载tableview
+            cellArray=_netDao.getNews()
+            loadTableView()
+            
+            //异步加载cell
+            loadAsyncCell()
+            
         }else{
             
             print("net fail")
         }
+    }
+    
+    func loadAsyncCell(){
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            
+            var text:String = "new demo"
+            //通知主线程刷新
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                /*
+                var indexPath = NSIndexPath(forRow: 3, inSection: 0)
+                var indexPath2 = NSIndexPath(forRow: 0, inSection: 0)
+                 var indexPath3 = NSIndexPath(forRow: 4, inSection: 0)
+                sleep(2)
+                self.tableView.beginUpdates()
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                //self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text="new one"
+                self.tableView.deleteRowsAtIndexPaths([indexPath2], withRowAnimation: UITableViewRowAnimation.None)
+                self.tableView.endUpdates()
+                self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text="new one"
+                //self.tableView.scrollToRowAtIndexPath(indexPath2, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+                */
+            });
+        })
+    }
+    
+    func loadTableView(){
+
+        var tableHeight = _height-49-tableTitleView.frame.origin.y-tableTitleView.frame.height-64
+        tableView=UITableView(frame: CGRectMake(0, tableTitleView.frame.origin.y+tableTitleView.frame.height, _width, tableHeight-30))
+        tableView.backgroundColor=UIColor.grayColor()
+        self.view.addSubview(tableView)
+        
+        //这两句很重要
+        tableView.delegate=self
+        tableView.dataSource=self
+        
+        tableView.separatorStyle=UITableViewCellSeparatorStyle.None
+        tableView.userInteractionEnabled=false//触摸无效
+
+        _tableViewHeight=tableView.frame.height
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cellIdentifier:String = "cellIdentifier"
+        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+                if cell == nil {
+            
+            //cell=UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+                   
+                    cell=InfoCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier,dic: cellArray[indexPath.row] as! NSDictionary,cellHeight:_tableViewHeight/4,cellWidth:_width)
+
+             //cell!.frame=CGRectMake(0, 0, _width, 100)
+            
+        }
+
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        print("heightForRowAtIndexPath is: \(_tableViewHeight/4)")
+        return _tableViewHeight/4
+        
     }
     
     //异步加载平台数量
@@ -92,13 +179,23 @@ class OneViewController: UIViewController {
         platformNum.center=CGPoint(x:_width/2,y:15+platformNum.frame.height/2)
         self.view.addSubview(platformNum)
         
-        var platformNumDescript=UILabel()
         platformNumDescript.text="实时监控平台数量"
         platformNumDescript.font=UIFont(name: _constant._textFont, size: 16)
         platformNumDescript.textColor=_constant._redColor
         platformNumDescript.sizeToFit()
         platformNumDescript.center=CGPoint(x:_width/2,y:platformNum.frame.height+platformNum.frame.origin.y+5+platformNumDescript.frame.height/2)
         self.view.addSubview(platformNumDescript)
+        
+        tableTitleView=UIView(frame: CGRectMake(0, platformNumDescript.frame.height+platformNumDescript.frame.origin.y+15, _width, 36))
+        tableTitleView.backgroundColor=_constant._redColor
+        self.view.addSubview(tableTitleView)
+        tableTitle=UILabel()
+        tableTitle.text="实时监控信息"
+        tableTitle.font=UIFont(name: _constant._textFont, size: 16)
+        tableTitle.textColor=UIColor.whiteColor()
+        tableTitle.sizeToFit()
+        tableTitle.center=CGPoint(x: 20+tableTitle.frame.width/2,y: tableTitleView.frame.height/2)
+        tableTitleView.addSubview(tableTitle)
     }
     
     func weChatLogin(){
