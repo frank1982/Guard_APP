@@ -15,7 +15,7 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     var tableTitleView:UIView!
     var tableTitle:UILabel!
     var tableView:UITableView!
-    var cellArray:NSArray!
+    var cellArray:NSMutableArray!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,9 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
         _height=UIScreen.mainScreen().bounds.height
         self.view.backgroundColor=UIColor.whiteColor()
         
+        //判断是iphone几？
+        //var device=UIDevice.currentDevice().name
+        //print(device)
         
         var titleLabel=UILabel(frame:CGRectMake(0, 0, 80, 44))
         //titleLabel.backgroundColor=UIColor.greenColor()
@@ -85,27 +88,46 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     
     func loadAsyncCell(){
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        
             
-            var text:String = "new demo"
-            //通知主线程刷新
-            dispatch_async(dispatch_get_main_queue(), {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 
-                /*
-                var indexPath = NSIndexPath(forRow: 3, inSection: 0)
-                var indexPath2 = NSIndexPath(forRow: 0, inSection: 0)
-                 var indexPath3 = NSIndexPath(forRow: 4, inSection: 0)
-                sleep(2)
-                self.tableView.beginUpdates()
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-                //self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text="new one"
-                self.tableView.deleteRowsAtIndexPaths([indexPath2], withRowAnimation: UITableViewRowAnimation.None)
-                self.tableView.endUpdates()
-                self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text="new one"
-                //self.tableView.scrollToRowAtIndexPath(indexPath2, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
-                */
-            });
-        })
+                while true{
+                    
+                    sleep(2)
+                    var id=self.cellArray[self.cellArray.count-1]["id"] as! String
+                    //print(id)
+                    var tmp:NSMutableArray!
+                    tmp = self._netDao.getNewsById(id)! as NSMutableArray
+                    //print(tmp[tmp.count-1]["id"])
+                    //通知主线程刷新
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        
+                        
+                        for(var i=0;i<tmp.count;i++){
+                            
+                            //print(tmp.count)
+                            self.cellArray.addObject(tmp[i])
+                            //print(self.cellArray[self.cellArray.count-1]["title"])
+                            self.tableView.beginUpdates()
+                            print(self.cellArray[3]["title"])
+                            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 3, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+                            
+                            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+                            self.cellArray.removeObjectAtIndex(0)
+                            self.tableView.endUpdates()
+                            
+                            
+                        }
+                        
+                    })
+
+                }
+                
+        
+            })
+        
     }
     
     func loadTableView(){
@@ -133,23 +155,21 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier:String = "cellIdentifier"
+        var cell=InfoCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier,dic: cellArray[indexPath.row] as! NSDictionary,cellHeight:_tableViewHeight/4,cellWidth:_width)
+        /*let cellIdentifier:String = "cellIdentifier"
         var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
-                if cell == nil {
-            
+            if cell == nil {
             //cell=UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
-                   
-                    cell=InfoCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier,dic: cellArray[indexPath.row] as! NSDictionary,cellHeight:_tableViewHeight/4,cellWidth:_width)
+            cell=InfoCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier,dic: cellArray[indexPath.row] as! NSDictionary,cellHeight:_tableViewHeight/4,cellWidth:_width)
 
-             //cell!.frame=CGRectMake(0, 0, _width, 100)
             
         }
-
-        return cell!
+        */
+        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        print("heightForRowAtIndexPath is: \(_tableViewHeight/4)")
+
         return _tableViewHeight/4
         
     }

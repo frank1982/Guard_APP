@@ -27,24 +27,46 @@ class NetDao: NSObject {
     }
     
     //从服务端查询最新的消息动态，最多四条
-    func getNews()->NSArray?{
+    func getNews()->NSMutableArray?{
         
         var urlString=URL+"/guard/getNews.action"
         var nsUrl:NSURL=NSURL(string:urlString)!
         var request:NSURLRequest=NSURLRequest(URL: nsUrl)
         var response:NSURLResponse?
         var error:NSError?
-        var jsonArray:NSArray!
+        var jsonArray:NSMutableArray!
 
         do {
             let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
             
-            jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+            jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSMutableArray
             
         }catch(let error){
             print("查找服务器查询最新的消息动态失败")
         }
         return jsonArray
 
+    }
+    
+    //根据id从服务端查询最新的消息动态，随机1-4条
+    func getNewsById(id:String)->NSMutableArray?{
+        
+        var urlString=URL+"/guard/getNewsById.action?id="+id
+        var nsUrl:NSURL=NSURL(string:urlString)!
+        var request:NSURLRequest=NSURLRequest(URL: nsUrl)
+        var response:NSURLResponse?
+        var error:NSError?
+        var jsonArray:NSMutableArray!
+        
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            
+            jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSMutableArray
+            
+        }catch(let error){
+            print("查找服务器查询最新的消息动态失败")
+        }
+        return jsonArray
+        
     }
 }
