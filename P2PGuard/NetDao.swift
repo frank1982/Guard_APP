@@ -3,13 +3,31 @@ import UIKit
 
 class NetDao: NSObject {
     
-    var URL:String="http://120.26.215.42:8080"
-    //var URL:String="http://127.0.0.1:8888"
+    //var URL:String="http://120.26.215.42:8080"
+    var URL:String="http://127.0.0.1:8888"
+    
+    func loginCheck(phone:String,pwd:String)->String?{
+        
+        var urlString=URL+"/guard/userLogin.action?username="+phone+"&pwd="+pwd;
+        var nsUrl:NSURL=NSURL(string:urlString)!
+        var request:NSURLRequest=NSURLRequest(URL: nsUrl)
+        var response:NSURLResponse?
+        var error:NSError?
+        var result:String?
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            result=NSString(data:data,encoding:NSUTF8StringEncoding) as! String
+            
+        }catch(let error){
+            print("getPlatformNumFromServer失败")
+            result="netfail"
+        }
+        return result
+    }
     
     //从服务端查询最新数据id,采用同步方式
     func getPlatformNumFromServer()->Int?{
-        
-        
+
         var urlString=URL+"/guard/getPlatformNum.action"
         var nsUrl:NSURL=NSURL(string:urlString)!
         var request:NSURLRequest=NSURLRequest(URL: nsUrl)
