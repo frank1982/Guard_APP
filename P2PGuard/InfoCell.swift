@@ -28,8 +28,6 @@ class InfoCell: UITableViewCell {
         var  title=UILabel(frame:CGRectMake(10,cellHeight/3,cellWidth,cellHeight*2/3))
         title.text=dic["title"] as! String
         title.font=UIFont(name: _constant._textFont, size: 16)
-        print("title")
-        print(title)
         self.addSubview(title)
         
     }

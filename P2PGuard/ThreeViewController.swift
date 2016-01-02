@@ -1,10 +1,4 @@
-//
-//  ThreeViewController.swift
-//  P2PGuard
-//
-//  Created by frank on 15/12/15.
-//  Copyright © 2015年 frank. All rights reserved.
-//
+
 
 import UIKit
 

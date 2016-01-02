@@ -3,8 +3,8 @@ import UIKit
 
 class NetDao: NSObject {
     
-    //let URL:String="http://120.26.215.42:8080"
-    var URL:String="http://127.0.0.1:8888"
+    var URL:String="http://120.26.215.42:8080"
+    //var URL:String="http://127.0.0.1:8888"
     
     //从服务端查询最新数据id,采用同步方式
     func getPlatformNumFromServer()->Int?{
@@ -59,8 +59,7 @@ class NetDao: NSObject {
         var jsonArray:NSMutableArray!
         
         do {
-            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-            
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)            
             jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSMutableArray
             
         }catch(let error){

@@ -45,17 +45,18 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
         self.navigationController!.navigationBar.tintColor=_constant._redColor
         
         //判断是否登录?
-        Dao.setLoginName()
+        //Dao.setLoginName()
         var loginName=Dao.getLoginName()
         if loginName == nil {//未登录
             
-            var statusBtnItem=UIBarButtonItem(title: "微信登录", style: UIBarButtonItemStyle.Plain, target: self, action: "weChatLogin")
+            var statusBtnItem=UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: "login")
             statusBtnItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: _constant._textFont, size: 16)!,NSForegroundColorAttributeName: _constant._redColor], forState: UIControlState.Normal)
             self.navigationItem.rightBarButtonItem=statusBtnItem
             
         }else{//已经登录
             
             //显示登录名
+            /*
             var nameLabel=UILabel()
             nameLabel.text=loginName!+",欢迎您"
             nameLabel.font=UIFont(name: _constant._textFont, size: 16)
@@ -63,10 +64,13 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
             nameLabel.sizeToFit()
             nameLabel.center=CGPoint(x:_width-nameLabel.frame.width/2-10,y:22)
             self.navigationController?.navigationBar.addSubview(nameLabel)
+            */
         }
         
         //显示当前监控平台数量
         showPlatformNum()
+        
+        
         
         if _isNetOK {
             
@@ -77,6 +81,8 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
             cellArray=_netDao.getNews()
             loadTableView()
             
+            loadAddbtn()
+            
             //异步加载cell
             loadAsyncCell()
             
@@ -86,10 +92,40 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
         }
     }
     
-    func loadAsyncCell(){
+    func loadAddbtn(){
+
+        var addBtn=UIButton(frame:CGRectMake(_width*3/8, _height-49-64-_width/8, _width/4, _width/8))
+        addBtn.setImage(UIImage(named: "Add"), forState: UIControlState.Normal)
+        addBtn.addTarget(self, action: "addProduct",
+            forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(addBtn)
+        self.view.bringSubviewToFront(addBtn)
+    }
+    
+    func addProduct(){
         
-        
+        var des:UIViewController
+        if Dao.getLoginName() == nil {//未登录
             
+            des=LoginViewController()
+            
+        }else{//已登录
+            
+            des=AddProductViewController()
+            
+        }
+        var animation=CATransition()
+        animation.duration=0.5
+        animation.timingFunction=CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
+        animation.type="pageCurl"
+        animation.subtype=kCATransitionFromBottom
+        self.navigationController!.view.layer.addAnimation(animation, forKey: nil)
+        self.navigationController?.pushViewController(des, animated: false)
+
+    }
+    
+    func loadAsyncCell(){
+
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 
                 while true{
@@ -102,30 +138,24 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
                     //print(tmp[tmp.count-1]["id"])
                     //通知主线程刷新
                     dispatch_async(dispatch_get_main_queue(), {
-                        
-                        
-                        
+
                         for(var i=0;i<tmp.count;i++){
                             
                             //print(tmp.count)
                             self.cellArray.addObject(tmp[i])
                             //print(self.cellArray[self.cellArray.count-1]["title"])
                             self.tableView.beginUpdates()
-                            print(self.cellArray[3]["title"])
+                            //print(self.cellArray[3]["title"])
                             self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 3, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
                             
                             self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
                             self.cellArray.removeObjectAtIndex(0)
                             self.tableView.endUpdates()
                             
-                            
                         }
-                        
                     })
-
                 }
-                
-        
+
             })
         
     }
@@ -218,11 +248,11 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
         tableTitleView.addSubview(tableTitle)
     }
     
-    func weChatLogin(){
+    func login(){
         
-        print ("weChatLogin")
-        var weChatLoginVC=WeChatLoginViewController()
-        self.navigationController?.pushViewController(weChatLoginVC, animated: false)
+        print ("login")
+        var LoginVC=LoginViewController()
+        self.navigationController?.pushViewController(LoginVC, animated: false)
 
     }
     override func didReceiveMemoryWarning() {
