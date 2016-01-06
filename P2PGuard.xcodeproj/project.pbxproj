@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		011F37081C206C490093086B /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F37071C206C490093086B /* TwoViewController.swift */; };
 		011F370A1C206C560093086B /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F37091C206C560093086B /* ThreeViewController.swift */; };
+		0159E30C1C39616100A7FC61 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159E30A1C39616100A7FC61 /* Product+CoreDataProperties.swift */; };
+		0159E30D1C39616100A7FC61 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159E30B1C39616100A7FC61 /* Product.swift */; };
+		0159E30F1C3AB79C00A7FC61 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */; };
 		01692FCE1C26B08A0078E674 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FCD1C26B08A0078E674 /* Dao.swift */; };
 		01692FD11C26DFA00078E674 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD01C26DFA00078E674 /* LoginViewController.swift */; };
 		01692FD31C26F46E0078E674 /* NetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD21C26F46E0078E674 /* NetDao.swift */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		011F37071C206C490093086B /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		011F37091C206C560093086B /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
+		0159E30A1C39616100A7FC61 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0159E30B1C39616100A7FC61 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		01692FCD1C26B08A0078E674 /* Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
 		01692FD01C26DFA00078E674 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		01692FD21C26F46E0078E674 /* NetDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetDao.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 				019320641C204DA200AB90BE /* OneViewController.swift */,
 				01692FD41C2992100078E674 /* InfoCell.swift */,
 				01F3E3321C3016F5001056AA /* AddProductViewController.swift */,
+				0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */,
 			);
 			name = One;
 			sourceTree = "<group>";
@@ -138,6 +145,8 @@
 				019320931C20544700AB90BE /* Constant.swift */,
 				01692FCD1C26B08A0078E674 /* Dao.swift */,
 				01692FD21C26F46E0078E674 /* NetDao.swift */,
+				0159E30A1C39616100A7FC61 /* Product+CoreDataProperties.swift */,
+				0159E30B1C39616100A7FC61 /* Product.swift */,
 			);
 			path = P2PGuard;
 			sourceTree = "<group>";
@@ -311,8 +320,10 @@
 			files = (
 				01F3E3331C3016F5001056AA /* AddProductViewController.swift in Sources */,
 				011F37081C206C490093086B /* TwoViewController.swift in Sources */,
+				0159E30C1C39616100A7FC61 /* Product+CoreDataProperties.swift in Sources */,
 				019320651C204DA200AB90BE /* OneViewController.swift in Sources */,
 				019320631C204DA200AB90BE /* AppDelegate.swift in Sources */,
+				0159E30F1C3AB79C00A7FC61 /* ProductCell.swift in Sources */,
 				011F370A1C206C560093086B /* ThreeViewController.swift in Sources */,
 				0193206B1C204DA200AB90BE /* P2PGuard.xcdatamodeld in Sources */,
 				01692FD31C26F46E0078E674 /* NetDao.swift in Sources */,
@@ -320,6 +331,7 @@
 				01692FD11C26DFA00078E674 /* LoginViewController.swift in Sources */,
 				01692FCE1C26B08A0078E674 /* Dao.swift in Sources */,
 				01692FD51C2992100078E674 /* InfoCell.swift in Sources */,
+				0159E30D1C39616100A7FC61 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = P2PGuard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -472,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = P2PGuard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lemontree.P2PGuard;
 				PRODUCT_NAME = "$(TARGET_NAME)";

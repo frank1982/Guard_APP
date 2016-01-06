@@ -1,13 +1,14 @@
 
 import UIKit
 
-class AddProductViewController: UIViewController{
+class AddProductViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate{
     
     var _constant:Constant=Constant()
-    //var searchBar:UISearchBar!
+    var selectTable:UITableView!
     var _width:CGFloat!
     var _height:CGFloat!
- 
+    var prodctDicArray0:NSMutableArray!
+    var prodctDicArray1:NSMutableArray!
     
     override func viewDidLoad() {
         
@@ -30,38 +31,77 @@ class AddProductViewController: UIViewController{
         searchTextField.leftView=UIView(frame:CGRectMake(0,0, 20, 44))
         searchTextField.leftViewMode=UITextFieldViewMode.Always
         searchTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        searchTextField.delegate=self
+        //监听中文需要添加
+        searchTextField.addTarget(self, action: "textFieldDidChanged:", forControlEvents: UIControlEvents.EditingChanged)
         self.view.addSubview(searchTextField)
         
+        var tableHeight=UIScreen.mainScreen().bounds.height-searchTextField.frame.origin.y-searchTextField.frame.height
+        selectTable=UITableView(frame: CGRectMake(0, searchTextField.frame.origin.y+searchTextField.frame.height
+            , _width, tableHeight))
+        selectTable.backgroundColor=UIColor.grayColor()
+        selectTable.delegate=self
+        selectTable.dataSource=self
+        self.view.addSubview(selectTable)
         
-
-        
-        /*
-        searchBar=UISearchBar(frame:CGRectMake(0,0, _width, 44))
-        //searchBar.delegate=self
-        
-        for view in searchBar.subviews {
-            
-            if view.isKindOfClass(NSClassFromString("UIView")!) && view.subviews.count > 0{
-                
-                view.subviews[0].removeFromSuperview()
-            }
-        }
-        searchBar.barTintColor=UIColor.redColor()
-        
-        // 经测试, 需要设置barTintColor后, 才能拿到UISearchBarTextField对象
-        var textField=searchBar.subviews[0].subviews.last as! UITextField
-        textField.backgroundColor=UIColor.orangeColor()
-        textField.layer.cornerRadius = 4.0;
-        //textField.frame.origin=CGPoint(x: 100,y: 20)
-        
-        searchBar.layer.borderWidth=1
-        searchBar.layer.borderColor=_constant._redColor.CGColor
-        searchBar.placeholder="请输入要监控的产品"
-        self.view.addSubview(searchBar)
-        */
+        //get local product
+        prodctDicArray0=Dao.getLocalProduct()
+        prodctDicArray1=Dao.getLocalProduct()
         
     }
-
+    
+    //监听中文
+    func textFieldDidChanged(textField:UITextField){
+        
+        print(textField.text)
+        var inputStr=textField.text
+        //word filter
+        var tmpDicArry:NSMutableArray=NSMutableArray()
+        if inputStr != ""{
+            
+            for mydictionary in prodctDicArray0{
+                var str=mydictionary["productName"] as! String
+                if str.rangeOfString(inputStr!) != nil {
+                    tmpDicArry.addObject(mydictionary)
+                }
+            }
+            prodctDicArray1=tmpDicArry
+            self.selectTable.reloadData()
+            
+        }else{
+            
+            prodctDicArray1=prodctDicArray0
+            self.selectTable.reloadData()
+        }
+    }
+    
+    //监听输入，这个只监听英文
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        print(string)
+        return true
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //最多显示20条;
+        return prodctDicArray1.count >= 20 ? 20:prodctDicArray1.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cellIdentifier:String = "cellIdentifier"
+        var cell=ProductCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier,dic: prodctDicArray1[indexPath.row] as! NSMutableDictionary,cellHeight:60,cellWidth:_width)
+        return cell
+        
+    }
+    
+    //click cell
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

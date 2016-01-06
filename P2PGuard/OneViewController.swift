@@ -47,6 +47,7 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
         //判断是否登录?
         //Dao.setLoginName()
         var loginName=Dao.getLoginName()
+        
         if loginName == nil {//未登录
             
             var statusBtnItem=UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: "login")
@@ -104,7 +105,9 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     
     func addProduct(){
         
+        print("click add btn")
         var des:UIViewController
+        //print(Dao.getLoginName())
         if Dao.getLoginName() == nil {//未登录
             
             des=LoginViewController()

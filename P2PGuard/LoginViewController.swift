@@ -2,7 +2,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController,UITextFieldDelegate {
+class LoginViewController: UIViewController,UITextFieldDelegate{
     
     var _constant:Constant=Constant()
     var _width:CGFloat!
@@ -168,7 +168,15 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     self.loginBtn.enabled=true
                     if msg == "success"{//登录成功
                         
-                        //self.pwdTextFieldMsg.text=""
+                        var des=AddProductViewController()
+                        var animation=CATransition()
+                        animation.duration=0.5
+                        animation.timingFunction=CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
+                        animation.type="pageCurl"
+                        animation.subtype=kCATransitionFromBottom
+                        self.navigationController!.view.layer.addAnimation(animation, forKey: nil)
+                        self.navigationController?.pushViewController(des, animated: false)
+
                     }else if msg == "error"{
                         self.pwdTextFieldMsg.text="用户名或密码错误"
                         self.pwdTextField.text=""
@@ -209,8 +217,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
         }
         
-        return true
-       
+        return true       
     }
     
     override func didReceiveMemoryWarning() {
