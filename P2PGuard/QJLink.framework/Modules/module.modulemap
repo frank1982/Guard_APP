@@ -1,0 +1,10 @@
+framework module QJLink {
+  umbrella header "QJLink.h"
+
+  export *
+  module * { export * }
+}
+
+module QJLink.Swift {
+    header "QJLink-Swift.h"
+}
