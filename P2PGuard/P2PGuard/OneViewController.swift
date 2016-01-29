@@ -134,7 +134,7 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
                 
                 while true{
                     
-                    sleep(2)
+                    sleep(3)
                     var id=self.cellArray[self.cellArray.count-1]["id"] as! String
                     //print(id)
                     var tmp:NSMutableArray!

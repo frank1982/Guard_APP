@@ -65,6 +65,19 @@ class RegViewController: UIViewController,UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    //检查输入内容
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+
+            if range.location >= 11 {//输入长度控制
+                return false
+            }
+            if !"0123456789".containsString(string){//输入必须为数字
+                return false
+            }
+
+        return true
+    }
+
 
     func next(){
         

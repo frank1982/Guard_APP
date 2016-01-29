@@ -5,7 +5,7 @@ import CoreData
 import QJLink
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var _netDao:NetDao=NetDao()
@@ -13,11 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //set view controllers
         let oneVC=OneViewController();
         let nav1=UINavigationController(rootViewController:oneVC);
         nav1.tabBarItem=UITabBarItem(title:"舆情监控",image: nil,tag:1);
-        nav1.tabBarItem.tag=1
         
         let twoVC=TwoViewController();
         let nav2=UINavigationController(rootViewController:twoVC);
@@ -35,21 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         //设置一个tabbaritem上的imageView...
         var tab1ImageView=UIImageView()
-        tab1ImageView.tag=101
         tab1ImageView.image=UIImage(named: "Bell")
         tab1ImageView.sizeToFit()
         tab1ImageView.frame.origin=CGPoint(x:UIScreen.mainScreen().bounds.width*1/6-tab1ImageView.frame.width/2,y:5)
         nav1.tabBarController?.tabBar.addSubview(tab1ImageView)
         
         var tab1ImageView2=UIImageView()
-        tab1ImageView2.tag=102
         tab1ImageView2.image=UIImage(named: "Light")
         tab1ImageView2.sizeToFit()
         tab1ImageView2.frame.origin=CGPoint(x:UIScreen.mainScreen().bounds.width*1/2-tab1ImageView2.frame.width/2,y:5)
         nav2.tabBarController?.tabBar.addSubview(tab1ImageView2)
         
         var label=UILabel()
-        label.tag=102
         label.text="We"
         label.textAlignment=NSTextAlignment.Center
         label.textColor=_constant._redColor

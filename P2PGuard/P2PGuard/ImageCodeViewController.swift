@@ -28,7 +28,7 @@ class ImageCodeViewController: UIViewController,UITextFieldDelegate{
         self.navigationItem.titleView = titleLabel;
         self.navigationController!.navigationBar.translucent = false//取消渐变效果...
         
-        codeField=UITextField(frame:CGRectMake(10,10, _width/2-10, 40))
+        codeField=UITextField(frame:CGRectMake(10,20, _width/2-10, 40))
         codeField.delegate=self
         codeField.placeholder="输入图形验证码"
         codeField.font=UIFont(name: _constant._digitalFont, size: 20)
@@ -47,8 +47,15 @@ class ImageCodeViewController: UIViewController,UITextFieldDelegate{
         self.view.addSubview(errorMsg)
         
         
-        pictureCodeImageView=UIImageView(frame:CGRectMake(_width/2,10, _width/2-10, 40))
+        pictureCodeImageView=UIImageView(frame:CGRectMake(_width/2,20, _width/2-10, 40))
         self.view.addSubview(pictureCodeImageView)
+        
+        var tapRecognizer=UITapGestureRecognizer(target: self, action: "tapFunc:")
+        tapRecognizer.numberOfTapsRequired = 1
+        pictureCodeImageView.userInteractionEnabled = true//必须要有这句
+        pictureCodeImageView.addGestureRecognizer(tapRecognizer)
+        
+        
         QJLinkManager.shareManager.requestPictureCode(phoneNum) { (data, error) -> () in
             
             if data != nil {
@@ -68,6 +75,35 @@ class ImageCodeViewController: UIViewController,UITextFieldDelegate{
             }
         }
 
+    }
+    
+    func tapFunc(sender:UITapGestureRecognizer){
+        
+        print("tap")
+        
+        //reset image code
+        QJLinkManager.shareManager.requestPictureCode(phoneNum) { (data, error) -> () in
+            
+            if data != nil {
+                // 利用获取的data数据生成图片
+                
+                self.pictureCodeImageView.image = UIImage(data: data!)
+                
+            }else{
+                
+                self.errorMsg.text="图形验证码获取失败"
+            }
+        }
+    }
+    
+    //检查输入内容
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if range.location >= 4 {//输入长度控制
+            return false
+        }
+        
+        return true
     }
     
     func next(){
