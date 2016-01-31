@@ -13,11 +13,15 @@ class SMSCodeViewController: UIViewController,UITextFieldDelegate{
     var _height:CGFloat!
     var sendSMSBtn:UIButton!
     var errorMsg:UILabel!
+    var timeBtn:UIButton!
+    var TIME:Int!
+    var timer:NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         _width=self.view.frame.width
         _height=self.view.frame.height
+        TIME=30
 
         self.view.backgroundColor=UIColor.whiteColor()
         var titleLabel=UILabel(frame:CGRectMake(0, 0, 80, 44))
@@ -28,7 +32,7 @@ class SMSCodeViewController: UIViewController,UITextFieldDelegate{
         self.navigationItem.titleView = titleLabel;
         self.navigationController!.navigationBar.translucent = false//取消渐变效果...
         
-        codeField=UITextField(frame:CGRectMake(10,10, _width/2-10, 40))
+        codeField=UITextField(frame:CGRectMake(10,20, _width-20, 40))
         codeField.delegate=self
         codeField.placeholder="输入短信验证码"
         codeField.font=UIFont(name: _constant._digitalFont, size: 20)
@@ -39,6 +43,17 @@ class SMSCodeViewController: UIViewController,UITextFieldDelegate{
         codeField.leftViewMode=UITextFieldViewMode.Always
         codeField.clearButtonMode = UITextFieldViewMode.WhileEditing
         self.view.addSubview(codeField)
+        
+        /*
+        //倒计时按钮
+        timeBtn=UIButton(frame:CGRectMake(_width/2,20, _width/2-10, 40))
+        timeBtn.backgroundColor=_constant._redColor
+        self.view.addSubview(timeBtn)
+        self.timeBtn.alpha=0.4
+        self.timeBtn.userInteractionEnabled=false
+        timeBtn.addTarget(self, action: "touchTimeBtn", forControlEvents: UIControlEvents.TouchUpInside)
+        */
+        
         
         //错误提示区域
         errorMsg=UILabel(frame:CGRectMake(10,codeField.frame.origin.y+codeField.frame.height, _width-20, 20))
@@ -61,6 +76,7 @@ class SMSCodeViewController: UIViewController,UITextFieldDelegate{
                 
                 // 登录成功的提示
                 //self.showMessage("验证码已发送至手机号：\n\(self.phoneNumberField.text!)")
+                //self.timer=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countTime"), userInfo: nil, repeats: true)
                 
             } else {
                 
@@ -70,6 +86,67 @@ class SMSCodeViewController: UIViewController,UITextFieldDelegate{
             }
         }
     }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        //print(string.lengthOfBytesUsingEncoding(NSASCIIStringEncoding))//string.length为0时，表示删除
+        if range.location >= 4 {//输入长度控制
+            
+            return false
+        }
+        if !"0123456789".containsString(string){//输入必须为数字
+            
+            return false
+        }
+
+        return true
+    }
+
+    
+    /*
+    func touchTimeBtn(){
+        
+        self.timeBtn.alpha=0.4
+        self.timeBtn.userInteractionEnabled=false
+        //获取短信验证码
+        QJLinkManager.shareManager.requestCode(self.phoneNum, codeNumber: self.imageCode) { (error) -> () in
+            
+            if error == nil { //登录成功
+                
+                // 登录成功的提示
+                //self.showMessage("验证码已发送至手机号：\n\(self.phoneNumberField.text!)")
+                self.timer=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countTime"), userInfo: nil, repeats: true)
+
+                
+            } else {
+                
+                print(error)
+                self.errorMsg.text="验证码发送失败"
+                
+            }
+        }
+        
+    }
+    
+    func countTime(){
+        
+        print("countTime")
+        if TIME>0{
+            
+            print("\(TIME)")
+            TIME = TIME-1
+            self.timeBtn.setTitle("\(TIME)", forState:UIControlState.Normal)
+        }else{
+            
+            timer.invalidate()
+            TIME=30
+            self.timeBtn.alpha=1
+            self.timeBtn.userInteractionEnabled=true
+            self.timeBtn.setTitle("重新获取", forState:UIControlState.Normal)
+
+        }
+    }
+    */
     
     func next(){
         
@@ -84,8 +161,10 @@ class SMSCodeViewController: UIViewController,UITextFieldDelegate{
                 
                 print("注册成功")
                 //跳转设置密码
-                
-                
+                var desVC=RegSuccessViewController()
+                desVC.username=self.phoneNum
+                self.navigationController?.pushViewController(desVC, animated: false)
+  
             }else{
                 
                 self.errorMsg.text="验证码错误"

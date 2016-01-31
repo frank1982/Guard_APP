@@ -11,6 +11,7 @@ class RegViewController: UIViewController,UITextFieldDelegate{
     var phoneTextFieldMsg:UILabel!
     var phoneTextField:UITextField!
     var regBtn:UIButton!
+    var _netDao:NetDao=NetDao()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,9 +94,18 @@ class RegViewController: UIViewController,UITextFieldDelegate{
               
         }else{
             
-            var desVC=ImageCodeViewController()
-            desVC.phoneNum=phoneTextField.text!
-            self.navigationController?.pushViewController(desVC, animated: false)
+            //防止id重复
+            var result=_netDao.checkUserId(phoneTextField.text!)
+            if result == "yes"{
+                
+                phoneTextFieldMsg.text="该用户已存在"
+            }else{
+                
+                var desVC=ImageCodeViewController()
+                desVC.phoneNum=phoneTextField.text!
+                self.navigationController?.pushViewController(desVC, animated: false)
+            }
+        
         }
 
     }

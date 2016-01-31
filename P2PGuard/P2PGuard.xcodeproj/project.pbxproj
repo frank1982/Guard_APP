@@ -15,6 +15,7 @@
 		012A06201C54FC04005F17D7 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012A061F1C54FC04005F17D7 /* LinkViewController.swift */; };
 		014F2E621C5898E90087E826 /* QJLink.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 016AF0E51C577D8C007A5955 /* QJLink.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0159E30F1C3AB79C00A7FC61 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */; };
+		015F807E1C5DBAFA00303F2C /* RegSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F807D1C5DBAFA00303F2C /* RegSuccessViewController.swift */; };
 		01692FCE1C26B08A0078E674 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FCD1C26B08A0078E674 /* Dao.swift */; };
 		01692FD11C26DFA00078E674 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD01C26DFA00078E674 /* LoginViewController.swift */; };
 		01692FD31C26F46E0078E674 /* NetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD21C26F46E0078E674 /* NetDao.swift */; };
@@ -74,6 +75,7 @@
 		012A061D1C54EEB0005F17D7 /* GuardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardDetailViewController.swift; sourceTree = "<group>"; };
 		012A061F1C54FC04005F17D7 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		015F807D1C5DBAFA00303F2C /* RegSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegSuccessViewController.swift; sourceTree = "<group>"; };
 		01692FCD1C26B08A0078E674 /* Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
 		01692FD01C26DFA00078E674 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		01692FD21C26F46E0078E674 /* NetDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetDao.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		019320611C204DA200AB90BE /* P2PGuard */ = {
 			isa = PBXGroup;
 			children = (
+				015F807D1C5DBAFA00303F2C /* RegSuccessViewController.swift */,
 				0110AFE41C59015800268BE4 /* SMSCodeViewController.swift */,
 				016AF0E31C577C55007A5955 /* RegViewController.swift */,
 				0110AFE21C58F3E400268BE4 /* ImageCodeViewController.swift */,
@@ -362,6 +365,7 @@
 				019320651C204DA200AB90BE /* OneViewController.swift in Sources */,
 				019320631C204DA200AB90BE /* AppDelegate.swift in Sources */,
 				012A06201C54FC04005F17D7 /* LinkViewController.swift in Sources */,
+				015F807E1C5DBAFA00303F2C /* RegSuccessViewController.swift in Sources */,
 				016AF0E41C577C55007A5955 /* RegViewController.swift in Sources */,
 				0159E30F1C3AB79C00A7FC61 /* ProductCell.swift in Sources */,
 				011F370A1C206C560093086B /* ThreeViewController.swift in Sources */,

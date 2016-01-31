@@ -26,42 +26,43 @@ class TwoViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
             self.navigationController!.view.layer.addAnimation(animation, forKey: nil)
             self.navigationController?.pushViewController(des, animated: false)
  
+        }else{
+            
+            _width=self.view.frame.width
+            _height=UIScreen.mainScreen().bounds.height
+            self.view.backgroundColor=UIColor.whiteColor()
+            
+            
+            var titleLabel=UILabel(frame:CGRectMake(0, 0, 80, 44))
+            //titleLabel.backgroundColor=UIColor.greenColor()
+            titleLabel.text="我的通知"
+            titleLabel.font=UIFont(name: _constant._textFont, size: 20)
+            titleLabel.textColor=_constant._redColor
+            self.navigationItem.titleView = titleLabel;
+            self.navigationController!.navigationBar.translucent = false//取消渐变效果...
+            
+            
+            //加载表格
+            infoTable=UITableView(frame:CGRectMake(0,0,_width,_height))
+            infoTable.backgroundColor=UIColor.whiteColor()
+            infoTable.dataSource=self
+            infoTable.delegate=self
+            self.view.addSubview(infoTable)
+            infoTable.separatorStyle=UITableViewCellSeparatorStyle.None
+            
+            //下拉刷新控件初始化...
+            refreshControl=UIRefreshControl()
+            infoTable.addSubview(refreshControl)
+            refreshControl.attributedTitle=NSAttributedString(string: "下拉刷新")
+            refreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+            
+            //infoTable.tableFooterView
+            
+            //首次加载前10条
+            infoDicArray=netDao.getMyNews(Dao.getLoginId()!, limit: "10", offset: "0")
+            //print(infoDicArray)
         }
-        
-        _width=self.view.frame.width
-        _height=UIScreen.mainScreen().bounds.height
-        self.view.backgroundColor=UIColor.whiteColor()
-
-        
-        var titleLabel=UILabel(frame:CGRectMake(0, 0, 80, 44))
-        //titleLabel.backgroundColor=UIColor.greenColor()
-        titleLabel.text="我的通知"
-        titleLabel.font=UIFont(name: _constant._textFont, size: 20)
-        titleLabel.textColor=_constant._redColor
-        self.navigationItem.titleView = titleLabel;
-        self.navigationController!.navigationBar.translucent = false//取消渐变效果...
-        
-        
-        //加载表格
-        infoTable=UITableView(frame:CGRectMake(0,0,_width,_height))
-        infoTable.backgroundColor=UIColor.whiteColor()
-        infoTable.dataSource=self
-        infoTable.delegate=self
-        self.view.addSubview(infoTable)
-        infoTable.separatorStyle=UITableViewCellSeparatorStyle.None
-        
-        //下拉刷新控件初始化...
-        refreshControl=UIRefreshControl()
-        infoTable.addSubview(refreshControl)
-        refreshControl.attributedTitle=NSAttributedString(string: "下拉刷新")
-        refreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
-
-        //infoTable.tableFooterView
-        
-        //首次加载前10条
-        infoDicArray=netDao.getMyNews(Dao.getLoginId()!, limit: "10", offset: "0")
-        //print(infoDicArray)
-        
+   
     }
     
     func refresh(){
