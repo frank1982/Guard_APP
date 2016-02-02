@@ -158,6 +158,12 @@ class Dao: NSObject {
     userDefault.setObject(idString, forKey: "userid")
     
     }
+    
+    class func delLoginId(){
+        
+        var userDefault:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        userDefault.removeObjectForKey("userid")
+    }
 
     
     class func getLoginId()->String?{

@@ -2,8 +2,8 @@
 
 import UIKit
 
-class RegSuccessViewController: UIViewController,UITextFieldDelegate{
-
+class ForgetPwdSuccessViewController: UIViewController,UITextFieldDelegate{
+    
     var _constant:Constant=Constant()
     var _width:CGFloat!
     var _height:CGFloat!
@@ -70,13 +70,13 @@ class RegSuccessViewController: UIViewController,UITextFieldDelegate{
         
         regBtn=UIButton(frame:CGRectMake(10,pwdTextFieldMsg2.frame.origin.y+pwdTextFieldMsg2.frame.height, _width-20, 40))
         regBtn.backgroundColor=_constant._redColor
-        regBtn.setTitle("注册", forState: UIControlState.Normal)
+        regBtn.setTitle("提交", forState: UIControlState.Normal)
         regBtn.titleLabel?.font=UIFont(name: _constant._textFont, size: 22)
         regBtn.addTarget(self, action: "reg", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(regBtn)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,6 +88,7 @@ class RegSuccessViewController: UIViewController,UITextFieldDelegate{
         regBtn.enabled=false//不可重复点击
         var flag0=false
         var flag1=false
+
         print("click regbtn")
         
         //检查手机号码输入
@@ -96,11 +97,12 @@ class RegSuccessViewController: UIViewController,UITextFieldDelegate{
             pwdTextFieldMsg1.text="请输入密码"
             
         }else if pwdTextField1.text!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) <= 5{
-                
+            
             pwdTextFieldMsg1.text="密码为6-12位字母数字"
         }else{
             pwdTextFieldMsg1.text=""
             flag0=true
+
         }
         
         if pwdTextField2.text!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) == 0 {
@@ -108,51 +110,48 @@ class RegSuccessViewController: UIViewController,UITextFieldDelegate{
             pwdTextFieldMsg2.text="请输入密码"
             
         }else if pwdTextField2.text!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) <= 5{
-                
+            
             pwdTextFieldMsg2.text="密码为6-12位字母数字"
         }else if pwdTextField1.text! != pwdTextField2.text!{
             
             pwdTextFieldMsg2.text="密码不一致"
         }else{
-
+            
             pwdTextFieldMsg2.text=""
             flag1=true
-
+            
         }
         
-        if flag0 == true && flag1 == true && _netDao.addUser(username, pwd: pwdTextField2.text!) == "yes"{
+        if flag0 == true && flag1 == true && _netDao.setPwd(username, pwd: pwdTextField2.text!) == "yes"{
             
-            print("注册成功")
-            Dao.setLoginId(username)
-            //var alertView=UIView(frame:CGRectMake(_width/2-60,UIScreen.mainScreen().bounds.height-30,120,60))
             var alertView=UIView(frame:CGRectMake(_width/2-60,UIScreen.mainScreen().bounds.height/2-30,120,60))
             alertView.backgroundColor=UIColor.blackColor()
             alertView.alpha=0.5
-            var label=UILabel(frame:CGRectMake(0,0,120,60))
-            label.text="注册成功"
-            label.font=UIFont(name: _constant._textFont, size: 20)
+            var label=UILabel(frame:CGRectMake(0,10,100,40))
+            label.text="密码修改成功"
+            label.font=UIFont(name: _constant._textFont, size: 16)
             label.sizeToFit()
             label.textColor=_constant._redColor
             alertView.addSubview(label)
             self.view.addSubview(alertView)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-
-                    sleep(2)
-
-                    dispatch_async(dispatch_get_main_queue(), {
-                        
-                        alertView.removeFromSuperview()
-                        var desVC=OneViewController()
-                        self.navigationController?.pushViewController(desVC, animated: false)
+                
+                sleep(2)
+                
+                dispatch_async(dispatch_get_main_queue(), {
                     
-                    })
-  
+                    alertView.removeFromSuperview()
+                    var desVC=OneViewController()
+                    self.navigationController?.pushViewController(desVC, animated: false)
+                    
+                })
+                
             })
-
+            
         }
         regBtn.alpha=1
         regBtn.enabled=true
-
+        
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -181,16 +180,16 @@ class RegSuccessViewController: UIViewController,UITextFieldDelegate{
         
         return true
     }
-
+    
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

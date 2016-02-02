@@ -16,6 +16,10 @@
 		014F2E621C5898E90087E826 /* QJLink.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 016AF0E51C577D8C007A5955 /* QJLink.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0159E30F1C3AB79C00A7FC61 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */; };
 		015F807E1C5DBAFA00303F2C /* RegSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F807D1C5DBAFA00303F2C /* RegSuccessViewController.swift */; };
+		015F80811C608AC000303F2C /* ForgetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F80801C608AC000303F2C /* ForgetPwdViewController.swift */; };
+		015F80831C609E2900303F2C /* ForgetPwdImageCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F80821C609E2900303F2C /* ForgetPwdImageCodeViewController.swift */; };
+		015F80851C60EFF800303F2C /* ForgetPwdSMSCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F80841C60EFF800303F2C /* ForgetPwdSMSCodeViewController.swift */; };
+		015F80871C60F0AE00303F2C /* ForgetPwdSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F80861C60F0AE00303F2C /* ForgetPwdSuccessViewController.swift */; };
 		01692FCE1C26B08A0078E674 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FCD1C26B08A0078E674 /* Dao.swift */; };
 		01692FD11C26DFA00078E674 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD01C26DFA00078E674 /* LoginViewController.swift */; };
 		01692FD31C26F46E0078E674 /* NetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01692FD21C26F46E0078E674 /* NetDao.swift */; };
@@ -76,6 +80,10 @@
 		012A061F1C54FC04005F17D7 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		0159E30E1C3AB79C00A7FC61 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		015F807D1C5DBAFA00303F2C /* RegSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegSuccessViewController.swift; sourceTree = "<group>"; };
+		015F80801C608AC000303F2C /* ForgetPwdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdViewController.swift; sourceTree = "<group>"; };
+		015F80821C609E2900303F2C /* ForgetPwdImageCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdImageCodeViewController.swift; sourceTree = "<group>"; };
+		015F80841C60EFF800303F2C /* ForgetPwdSMSCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdSMSCodeViewController.swift; sourceTree = "<group>"; };
+		015F80861C60F0AE00303F2C /* ForgetPwdSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdSuccessViewController.swift; sourceTree = "<group>"; };
 		01692FCD1C26B08A0078E674 /* Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
 		01692FD01C26DFA00078E674 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		01692FD21C26F46E0078E674 /* NetDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetDao.swift; sourceTree = "<group>"; };
@@ -129,6 +137,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015F807F1C6057DF00303F2C /* ForgetPwd */ = {
+			isa = PBXGroup;
+			children = (
+				015F80801C608AC000303F2C /* ForgetPwdViewController.swift */,
+				015F80821C609E2900303F2C /* ForgetPwdImageCodeViewController.swift */,
+				015F80841C60EFF800303F2C /* ForgetPwdSMSCodeViewController.swift */,
+				015F80861C60F0AE00303F2C /* ForgetPwdSuccessViewController.swift */,
+			);
+			name = ForgetPwd;
+			sourceTree = "<group>";
+		};
 		01692FCF1C26DF850078E674 /* One */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +183,7 @@
 		019320611C204DA200AB90BE /* P2PGuard */ = {
 			isa = PBXGroup;
 			children = (
+				015F807F1C6057DF00303F2C /* ForgetPwd */,
 				015F807D1C5DBAFA00303F2C /* RegSuccessViewController.swift */,
 				0110AFE41C59015800268BE4 /* SMSCodeViewController.swift */,
 				016AF0E31C577C55007A5955 /* RegViewController.swift */,
@@ -367,16 +387,20 @@
 				012A06201C54FC04005F17D7 /* LinkViewController.swift in Sources */,
 				015F807E1C5DBAFA00303F2C /* RegSuccessViewController.swift in Sources */,
 				016AF0E41C577C55007A5955 /* RegViewController.swift in Sources */,
+				015F80831C609E2900303F2C /* ForgetPwdImageCodeViewController.swift in Sources */,
+				015F80871C60F0AE00303F2C /* ForgetPwdSuccessViewController.swift in Sources */,
 				0159E30F1C3AB79C00A7FC61 /* ProductCell.swift in Sources */,
 				011F370A1C206C560093086B /* ThreeViewController.swift in Sources */,
 				0193206B1C204DA200AB90BE /* P2PGuard.xcdatamodeld in Sources */,
 				01692FD31C26F46E0078E674 /* NetDao.swift in Sources */,
+				015F80851C60EFF800303F2C /* ForgetPwdSMSCodeViewController.swift in Sources */,
 				019320941C20544700AB90BE /* Constant.swift in Sources */,
 				01692FD11C26DFA00078E674 /* LoginViewController.swift in Sources */,
 				01692FCE1C26B08A0078E674 /* Dao.swift in Sources */,
 				0110AFE51C59015800268BE4 /* SMSCodeViewController.swift in Sources */,
 				01692FD51C2992100078E674 /* InfoCell.swift in Sources */,
 				017724891C42AAA600344098 /* Product.swift in Sources */,
+				015F80811C608AC000303F2C /* ForgetPwdViewController.swift in Sources */,
 				012A061E1C54EEB0005F17D7 /* GuardDetailViewController.swift in Sources */,
 				0110AFE31C58F3E400268BE4 /* ImageCodeViewController.swift in Sources */,
 			);

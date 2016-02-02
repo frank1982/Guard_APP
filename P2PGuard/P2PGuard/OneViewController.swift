@@ -138,26 +138,34 @@ class OneViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
                     var id=self.cellArray[self.cellArray.count-1]["id"] as! String
                     //print(id)
                     var tmp:NSMutableArray!
-                    tmp = self._netDao.getNewsById(id)! as NSMutableArray
-                    //print(tmp[tmp.count-1]["id"])
-                    //通知主线程刷新
-                    dispatch_async(dispatch_get_main_queue(), {
-
-                        for(var i=0;i<tmp.count;i++){
+                    var error:NSError?
+                    
+                    do{
+                        tmp = try? self._netDao.getNewsById(id)! as NSMutableArray
+                        //print(tmp[tmp.count-1]["id"])
+                        //通知主线程刷新
+                        dispatch_async(dispatch_get_main_queue(), {
                             
-                            //print(tmp.count)
-                            self.cellArray.addObject(tmp[i])
-                            //print(self.cellArray[self.cellArray.count-1]["title"])
-                            self.tableView.beginUpdates()
-                            //print(self.cellArray[3]["title"])
-                            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 3, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
-                            
-                            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
-                            self.cellArray.removeObjectAtIndex(0)
-                            self.tableView.endUpdates()
-                            
-                        }
-                    })
+                            for(var i=0;i<tmp.count;i++){
+                                
+                                //print(tmp.count)
+                                self.cellArray.addObject(tmp[i])
+                                //print(self.cellArray[self.cellArray.count-1]["title"])
+                                self.tableView.beginUpdates()
+                                //print(self.cellArray[3]["title"])
+                                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 3, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+                                
+                                self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+                                self.cellArray.removeObjectAtIndex(0)
+                                self.tableView.endUpdates()
+                                
+                            }
+                        })
+                    }catch(let error){
+                        
+                        print("异步加载信息遇到问题")
+                    }
+                    
                 }
 
             })

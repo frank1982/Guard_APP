@@ -5,6 +5,30 @@ class NetDao: NSObject {
     //var URL:String="http://120.26.215.42:8080"
     var URL:String="http://127.0.0.1:8888"
     
+    //修改密码
+    func setPwd(username:String,pwd:String)->String?{
+        
+        var urlString=URL+"/guard/setPwd.action?username="+username+"&pwd="+pwd
+        var nsUrl:NSURL=NSURL(string:urlString)!
+        var request:NSURLRequest=NSURLRequest(URL: nsUrl)
+        var response:NSURLResponse?
+        var error:NSError?
+        var result:String?
+        do {
+            
+            let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            result=NSString(data:data,encoding:NSUTF8StringEncoding) as! String
+            
+        }catch(let error){
+            print("checkUserId失败")
+            print(error)
+            result="error"
+        }
+        return result
+        
+    }
+    
+    
     //addUser
     func addUser(username:String,pwd:String)->String?{
         

@@ -116,6 +116,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
     func forgetPwd(){
         
         print("forgetPwd")
+        var regVC=ForgetPwdViewController()
+        self.navigationController?.pushViewController(regVC, animated: false)
     }
     
     func login(){
